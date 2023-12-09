@@ -1,0 +1,57 @@
+.form-container {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: solid black 0.1rem;
+    padding: 2rem;
+    background-color: #854D0E;
+    box-sizing: border-box;
+}
+
+.inputs-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+#player1,
+#player2 {
+    background-color: transparent;
+    border-bottom: solid 0.1rem #422006;
+    margin: 0 0.2rem 0 0.2rem;
+}
+
+.name-input-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.numPlayer-buttons-container {
+    display: flex;
+    justify-content: center;
+}
+
+.numPlayer-buttons-container>button {
+    margin: 1rem;
+    cursor: pointer;
+    width: 3rem;
+    height: 3rem;
+    background-color: orange;
+}
+
+.selected-button {
+    border: solid 0.3rem yellow;
+}
+
+.button-start {
+    cursor: pointer;
+    width: 70%;
+    border: solid 0.3rem yellow;
+    background-color: orange;
+    padding: 1rem;
+    margin-top: 1rem;
+    border-radius: 99px;
+}
