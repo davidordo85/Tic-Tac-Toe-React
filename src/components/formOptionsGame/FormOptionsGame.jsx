@@ -1,17 +1,18 @@
 import React from 'react';
 import { IoPersonSharp, IoPeopleSharp } from 'react-icons/io5';
 import './FormOptionsGame.css';
+import PropTypes from 'prop-types';
 
-const FormOptionsGame = () => {
+const FormOptionsGame = ({ onSubmit }) => {
   const [gameOptions, setGameOptions] = React.useState({
-    playerName1: '',
-    playerName2: '',
+    playerName1: 'Player',
+    playerName2: 'Player 2',
     numPlayer: 1,
   });
 
   const handleSubmit = event => {
     event.preventDefault();
-    console.log(gameOptions);
+    onSubmit(gameOptions);
   };
 
   const handleChange = event => {
@@ -41,7 +42,7 @@ const FormOptionsGame = () => {
           ></input>
         </div>
         {gameOptions.numPlayer > 1 ? (
-          <div className="name-input-container">
+          <div className="name-input-container two">
             <label htmlFor="player2">Name player 2</label>
             <input
               type="text"
@@ -84,6 +85,10 @@ const FormOptionsGame = () => {
       </button>
     </form>
   );
+};
+
+FormOptionsGame.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
 };
 
 export default FormOptionsGame;

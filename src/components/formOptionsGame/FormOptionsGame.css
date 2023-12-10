@@ -13,14 +13,18 @@
 
 .inputs-container {
     display: flex;
+    flex-direction: column;
     justify-content: space-around;
+}
+
+.two {
+    margin-top: 1rem;
 }
 
 #player1,
 #player2 {
     background-color: transparent;
     border-bottom: solid 0.1rem #422006;
-    margin: 0 0.2rem 0 0.2rem;
 }
 
 .name-input-container {
