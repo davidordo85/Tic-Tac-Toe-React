@@ -1,0 +1,52 @@
+@keyframes colorChange {
+    0% {
+        color: red;
+    }
+
+    25% {
+        color: blue;
+    }
+
+    50% {
+        color: green;
+    }
+
+    75% {
+        color: yellow;
+    }
+
+    100% {
+        color: red;
+    }
+}
+
+.message-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: colorChange 5s linear infinite;
+    background-color: rgba(128, 128, 128, 1);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.message-container>p {
+    font-size: 2rem;
+    font-weight: bold;
+
+}
+
+.button-message-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.button-message-container>button {
+    cursor: pointer;
+    border: solid 0.3rem yellow;
+    background-color: orange;
+    padding: 1rem;
+    margin-top: 1rem;
+    border-radius: 99px;
+}

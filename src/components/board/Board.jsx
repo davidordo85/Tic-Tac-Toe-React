@@ -4,16 +4,23 @@ import FormOptionsGame from '../formOptionsGame/FormOptionsGame';
 import TicTacToeGame from '../tictactoeGame/TicTacToeGame';
 
 function Board() {
-  const [gameState, setGameState] = React.useState('game');
-  const [gameOptions, setGameOptions] = React.useState({
-    playerName1: 'Player',
-    playerName2: 'Player 2',
+  const originalGameOptions = {
+    player1: { name: 'Player', symbol: 'O' },
+    player2: { name: 'Player 2', symbol: 'X' },
     numPlayer: 1,
-  });
+  };
+
+  const [gameState, setGameState] = React.useState('preGame');
+  const [gameOptions, setGameOptions] = React.useState(originalGameOptions);
 
   const handleOptions = submitOptions => {
     setGameOptions(submitOptions);
     setGameState('game');
+  };
+
+  const handleReset = () => {
+    setGameState('preGame');
+    setGameOptions(originalGameOptions);
   };
 
   return (
@@ -21,7 +28,7 @@ function Board() {
       {gameState === 'preGame' ? (
         <FormOptionsGame onSubmit={handleOptions} />
       ) : gameState === 'game' ? (
-        <TicTacToeGame optionsGame={gameOptions} />
+        <TicTacToeGame optionsGame={gameOptions} onReset={handleReset} />
       ) : null}
     </div>
   );

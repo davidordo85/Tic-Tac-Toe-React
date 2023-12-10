@@ -5,8 +5,8 @@ import PropTypes from 'prop-types';
 
 const FormOptionsGame = ({ onSubmit }) => {
   const [gameOptions, setGameOptions] = React.useState({
-    playerName1: 'Player',
-    playerName2: 'Player 2',
+    player1: { name: 'Player', symbol: 'O' },
+    player2: { name: 'Player 2', symbol: 'X' },
     numPlayer: 1,
   });
 
@@ -16,16 +16,14 @@ const FormOptionsGame = ({ onSubmit }) => {
   };
 
   const handleChange = event => {
-    setGameOptions(oldGameOptions => {
-      const newGameOptions = {
-        ...oldGameOptions,
-        [event.target.name]: event.target.value,
-      };
-      return newGameOptions;
-    });
+    const { name, value } = event.target;
+    setGameOptions(prevGameOptions => ({
+      ...prevGameOptions,
+      [name]: { ...prevGameOptions[name], name: value },
+    }));
   };
 
-  const { playerName1, playerName2, numPlayer } = gameOptions;
+  const { player1, player2, numPlayer } = gameOptions;
 
   return (
     <form onSubmit={handleSubmit} className="form-container">
@@ -35,8 +33,8 @@ const FormOptionsGame = ({ onSubmit }) => {
           <input
             type="text"
             id="player1"
-            name="playerName1"
-            value={playerName1}
+            name="player1"
+            value={player1.name}
             onChange={handleChange}
             autoComplete="off"
           ></input>
@@ -47,8 +45,8 @@ const FormOptionsGame = ({ onSubmit }) => {
             <input
               type="text"
               id="player2"
-              name="playerName2"
-              value={playerName2}
+              name="player2"
+              value={player2.name}
               onChange={handleChange}
               autoComplete="off"
             ></input>
@@ -59,6 +57,7 @@ const FormOptionsGame = ({ onSubmit }) => {
       <div className="numPlayer-buttons-container">
         <button
           className={numPlayer === 1 ? 'selected-button' : ''}
+          type="button"
           onClick={() =>
             setGameOptions(prevGameOptions => ({
               ...prevGameOptions,
@@ -70,6 +69,7 @@ const FormOptionsGame = ({ onSubmit }) => {
         </button>
         <button
           className={numPlayer === 2 ? 'selected-button' : ''}
+          type="button"
           onClick={() =>
             setGameOptions(prevGameOptions => ({
               ...prevGameOptions,

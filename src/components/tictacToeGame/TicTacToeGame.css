@@ -7,6 +7,13 @@
     background-color: black;
 }
 
+.cell-game,
+.cell-2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .cell-4 {
     border-right: solid white 0.1rem;
     border-bottom: solid white 0.1rem;
