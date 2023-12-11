@@ -68,6 +68,35 @@ const TicTacToeGame = ({ optionsGame, onReset }) => {
     setMessageResultGame('');
   };
 
+  const performAIMove = () => {
+    console.log('Performing AI move');
+    const emptyCells = cellContents.reduce((acc, cell, index) => {
+      if (cell === null) {
+        acc.push(index);
+      }
+      return acc;
+    }, []);
+
+    if (emptyCells.length > 0) {
+      const randomIndex = Math.floor(Math.random() * emptyCells.length);
+      const aiMove = emptyCells[randomIndex];
+
+      handleCellClick(aiMove);
+    }
+  };
+
+  if (
+    optionsGame.numPlayer === 1 &&
+    currentPlayer === optionsGame.player2 &&
+    !gameOver
+  ) {
+    setTimeout(function () {
+      {
+        performAIMove();
+      }
+    }, 500);
+  }
+
   return (
     <div className="game-container">
       {gameOver ? (
