@@ -21,32 +21,41 @@
 }
 
 .message-container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
     animation: colorChange 5s linear infinite;
     background-color: rgba(128, 128, 128, 1);
-    padding: 20px;
-    border-radius: 10px;
+    width: 100%;
+    height: 100%;
 }
 
 .message-container>p {
-    font-size: 2rem;
     font-weight: bold;
+    margin-bottom: 0.5rem;
 
 }
 
 .button-message-container {
+    position: absolute;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    margin: 0;
+    padding: 0;
 }
 
 .button-message-container>button {
     cursor: pointer;
     border: solid 0.3rem yellow;
     background-color: orange;
-    padding: 1rem;
-    margin-top: 1rem;
+    padding: 0.5rem;
     border-radius: 99px;
+}
+
+.button-restart {
+    margin-right: 1rem;
 }

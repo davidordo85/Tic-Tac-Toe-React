@@ -24,7 +24,10 @@ function Board() {
   };
 
   return (
-    <div className="board">
+    <div
+      className="board"
+      style={gameState === 'preGame' ? { padding: 0 } : null}
+    >
       {gameState === 'preGame' ? (
         <FormOptionsGame onSubmit={handleOptions} />
       ) : gameState === 'game' ? (

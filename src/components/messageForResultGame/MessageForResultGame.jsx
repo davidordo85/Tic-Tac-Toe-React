@@ -7,7 +7,9 @@ function MessageForResultGame({ message, onReset, onReload }) {
     <div className="message-container">
       <p>{message}</p>
       <div className="button-message-container">
-        <button onClick={onReset}>Restart</button>
+        <button className="button-restart" onClick={onReset}>
+          Restart
+        </button>
         <button onClick={onReload}>Reload</button>
       </div>
     </div>

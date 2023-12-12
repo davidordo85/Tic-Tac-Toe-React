@@ -78,9 +78,34 @@ const TicTacToeGame = ({ optionsGame, onReset }) => {
     }, []);
 
     if (emptyCells.length > 0) {
+      for (const index of emptyCells) {
+        const testBoard = [...cellContents];
+        testBoard[index] = optionsGame.player2.symbol;
+
+        if (
+          checkWinner(testBoard) ===
+          `¡Player ${optionsGame.player2.name} has won!`
+        ) {
+          handleCellClick(index);
+          return;
+        }
+      }
+
+      for (const index of emptyCells) {
+        const testBoard = [...cellContents];
+        testBoard[index] = optionsGame.player1.symbol;
+
+        if (
+          checkWinner(testBoard) ===
+          `¡Player ${optionsGame.player1.name} has won!`
+        ) {
+          handleCellClick(index);
+          return;
+        }
+      }
+
       const randomIndex = Math.floor(Math.random() * emptyCells.length);
       const aiMove = emptyCells[randomIndex];
-
       handleCellClick(aiMove);
     }
   };
@@ -99,20 +124,21 @@ const TicTacToeGame = ({ optionsGame, onReset }) => {
 
   return (
     <div className="game-container">
-      {gameOver ? (
-        <MessageForResultGame
-          message={messageResultGame}
-          onReload={handleReload}
-          onReset={onReset}
-        />
-      ) : null}
       <div className="cell-1">
         <Player
           name={optionsGame.player1.name}
           symbol={optionsGame.player1.symbol}
         />
       </div>
-      <div className="cell-2"></div>
+      <div className="cell-2">
+        {gameOver ? (
+          <MessageForResultGame
+            message={messageResultGame}
+            onReload={handleReload}
+            onReset={onReset}
+          />
+        ) : null}
+      </div>
       <div className="cell-3">
         <Player
           name={optionsGame.player2.name}
