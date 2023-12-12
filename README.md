@@ -13,7 +13,7 @@ This is a simple implementation of the classic Tic-Tac-Toe game using React. Pla
 
 ## Demo
 
-You can play the game online at [Demo Link](#).
+You can play the game online at [Demo Link](https://davidordo85.github.io/Tic-Tac-Toe-React/).
 
 ![Game Screenshot](public/tic-tac-toe%20screenshot.JPG)
 
