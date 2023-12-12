@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 const FormOptionsGame = ({ onSubmit }) => {
   const [gameOptions, setGameOptions] = React.useState({
     player1: { name: 'Player', symbol: 'O' },
-    player2: { name: 'Player 2', symbol: 'X' },
+    player2: { name: 'Cpu', symbol: 'X' },
     numPlayer: 1,
   });
 
@@ -22,6 +22,16 @@ const FormOptionsGame = ({ onSubmit }) => {
       [name]: { ...prevGameOptions[name], name: value },
     }));
   };
+
+  React.useEffect(() => {
+    setGameOptions(prevGameOptions => ({
+      ...prevGameOptions,
+      player2: {
+        ...prevGameOptions.player2,
+        name: prevGameOptions.numPlayer === 2 ? 'Player 2' : 'Cpu',
+      },
+    }));
+  }, [gameOptions.numPlayer]);
 
   const { player1, player2, numPlayer } = gameOptions;
 

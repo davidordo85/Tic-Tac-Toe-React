@@ -6,7 +6,7 @@ import TicTacToeGame from '../tictactoeGame/TicTacToeGame';
 function Board() {
   const originalGameOptions = {
     player1: { name: 'Player', symbol: 'O' },
-    player2: { name: 'Player 2', symbol: 'X' },
+    player2: { name: 'Cpu', symbol: 'X' },
     numPlayer: 1,
   };
 
